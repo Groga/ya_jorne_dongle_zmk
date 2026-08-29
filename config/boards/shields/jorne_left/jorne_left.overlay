@@ -4,7 +4,7 @@
 / {
 	zmk_keymap {
 		compatible = "zmk,keymap";
-		#include "keymap.dtsi"
+		#include <keymap.dtsi>
 	};
 };
 
