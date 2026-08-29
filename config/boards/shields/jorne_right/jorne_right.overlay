@@ -1,4 +1,4 @@
-#include "jorne.dtsi"
+#include "../jorne.dtsi"
 
 &kscan0 {
     // настройки сканирования матрицы левой половины (col-gpios, row-gpios)
