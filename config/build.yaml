@@ -3,10 +3,8 @@ include:
     shield: jorne_dongle
   - board: nice_nano/nrf52840/zmk
     shield: jorne_left
-    extra_kconfig: CONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano/nrf52840/zmk
     shield: jorne_right
-    extra_kconfig: CONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano/nrf52840/zmk
     shield: jorne_dongle
     extra_kconfig: CONFIG_ZMK_SETTINGS_RESET_ON_BOOT=y

@@ -1,9 +1,9 @@
 if SHIELD_JORNE_DONGLE
 
-config ZMK_KEYMAP_NAME
+config ZMK_KEYBOARD_NAME
     default "Jorne Dongle"
 
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
+config ZMK_SPLIT
     default y
 
-endif
+endif # SHIELD_JORNE_DONGLE
