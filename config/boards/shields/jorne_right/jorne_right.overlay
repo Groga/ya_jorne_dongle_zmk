@@ -1,4 +1,5 @@
-&matrix_cols { };
-&matrix_rows { };
+#include "jorne.dtsi"
 
-
+&kscan0 {
+    // настройки сканирования матрицы левой половины (col-gpios, row-gpios)
+};
