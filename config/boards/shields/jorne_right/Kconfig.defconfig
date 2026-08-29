@@ -1,0 +1,6 @@
+if SHIELD_JORNE_RIGHT
+
+config ZMK_KEYMAP_NAME
+    default "Jorne Right"
+
+endif

@@ -1,0 +1,9 @@
+if SHIELD_JORNE_DONGLE
+
+config ZMK_KEYMAP_NAME
+    default "Jorne Dongle"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+endif
