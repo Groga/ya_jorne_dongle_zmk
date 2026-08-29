@@ -1,0 +1,48 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+#include <boards/nrf52840/nice_nano_v2/nice_nano_v2.dts>
+
+/ {
+    model = "Jorne Dongle (Central)";
+    compatible = "zmk,jorne-dongle";
+
+    leds {
+        status_led: status_led {
+            gpios = <&pro_gpio1 17 GPIO_ACTIVE_HIGH>;
+        };
+    };
+
+    ble0: bt_nrf53 {
+        compatible = "nordic,nrf53-bt";
+        /* Если у тебя nRF52840 без отдельного BT‑чипа, этот узел может не понадобиться.
+         *		   Для nRF52840 BLE встроен в сам чип. */
+    };
+};
+
+&spi1 {
+    status = "okay";
+};
+
+/* Пример матрицы (нужно подставить реальные пины Jorne) */
+matrix_cols: matrix_cols {
+    compatible = "zmk,gpio-matrix-cols";
+    io-channels = <&pro_gpio1 2 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 3 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 4 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 5 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 6 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 7 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 8 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 9 GPIO_ACTIVE_HIGH>;
+};
+
+matrix_rows: matrix_rows {
+    compatible = "zmk,gpio-matrix-rows";
+    io-channels = <&pro_gpio1 10 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 11 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 12 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 13 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 14 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 15 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 16 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 17 GPIO_ACTIVE_HIGH>;
+};

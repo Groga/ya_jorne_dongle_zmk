@@ -1,0 +1,39 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+#include <boards/nrf52840/nice_nano_v2/nice_nano_v2.dts>
+
+/ {
+    model = "Jorne Right (Peripheral)";
+    compatible = "zmk,jorne-right";
+
+    leds {
+        status_led: status_led {
+            /* Пин светодиода правой половинки. Если свой — замени */
+            gpios = <&pro_gpio1 18 GPIO_ACTIVE_HIGH>;
+        };
+    };
+};
+
+/* Матрица правой половинки: подставь реальные пины */
+matrix_cols: matrix_cols {
+    compatible = "zmk,gpio-matrix-cols";
+    io-channels = <&pro_gpio1 20 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 21 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 22 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 23 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 24 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 25 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 26 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 27 GPIO_ACTIVE_HIGH>;
+};
+
+matrix_rows: matrix_rows {
+    compatible = "zmk,gpio-matrix-rows";
+    io-channels = <&pro_gpio1 28 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 29 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 30 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 31 GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 0  GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 1  GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 2  GPIO_ACTIVE_HIGH>,
+    <&pro_gpio1 3  GPIO_ACTIVE_HIGH>;
+};

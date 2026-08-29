@@ -1,0 +1,14 @@
+&matrix_cols {
+	/* Можно переопределить, если нужно */
+};
+
+/ {
+	zmk_keymap {
+		compatible = "zmk,keymap";
+		default_layer {
+			bindings = <&bt BT_CLR &bt BT_NEXT &bt BT_PREV &bt BT_H1 &bt BT_H2 &bt BT_H3 &kp LESC &kp TAB>;
+			/* Сюда позже подставишь реальный keymap из keymap.json */
+		};
+	};
+};
+

@@ -1,0 +1,9 @@
+&matrix_cols { };
+&matrix_rows { };
+
+/ {
+	zmk_keymap {
+		compatible = "zmk,keymap";
+		#include "keymap.dtsi"
+	};
+};
