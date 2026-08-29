@@ -1,6 +1,9 @@
 if SHIELD_JORNE_LEFT
 
-config ZMK_KEYMAP_NAME
-    default "Jorne Left"
+config ZMK_KEYBOARD_NAME
+    default "Jorne"
 
-endif
+config ZMK_SPLIT
+    default y
+
+endif # SHIELD_JORNE_LEFT
