@@ -1,6 +1,8 @@
 include:
   - board: nice_nano/nrf52840/zmk
     shield: jorne_dongle
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: nice_nano/nrf52840/zmk
     shield: jorne_left
   - board: nice_nano/nrf52840/zmk
