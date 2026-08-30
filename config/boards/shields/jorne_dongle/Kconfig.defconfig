@@ -1,3 +1,5 @@
+
+```kconfig
 if SHIELD_JORNE_DONGLE
 
 config ZMK_KEYBOARD_NAME
@@ -9,4 +11,15 @@ config ZMK_SPLIT
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+# 2 периферии + 5 профилей для подключения к хостам (по умолчанию для ZMK)
+config BT_MAX_CONN
+    default 7
+
+config BT_MAX_PAIRED
+    default 7
+
 endif # SHIELD_JORNE_DONGLE
+```
