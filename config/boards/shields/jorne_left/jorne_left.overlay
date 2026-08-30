@@ -16,26 +16,27 @@
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
     };
-};
 
-&kscan0 {
-    // 7 физических линий столбцов. Реально используются в основных
-    // рядах только первые 6 (индексы 0..5), 7-я (индекс 6) в текущей
-    // раскладке не задействована.
-    col-gpios
-        = <&pro_micro 21 GPIO_ACTIVE_HIGH>   // col 0
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH>   // col 1
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // col 2
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH>   // col 3
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH>   // col 4
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH>   // col 5
-        , <&pro_micro 16 GPIO_ACTIVE_HIGH>   // col 6 (запасной/не используется)
-        ;
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        diode-direction = "col2row";
 
-    row-gpios
-        = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 0
-        , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1
-        , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2
-        , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 (большие пальцы)
-        ;
+        col-gpios
+            = <&pro_micro 21 GPIO_ACTIVE_HIGH>   // col 0
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   // col 1
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // col 2
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   // col 3
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   // col 4
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>   // col 5
+            , <&pro_micro 16 GPIO_ACTIVE_HIGH>   // col 6 (запасной)
+            ;
+
+        row-gpios
+            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
 };
