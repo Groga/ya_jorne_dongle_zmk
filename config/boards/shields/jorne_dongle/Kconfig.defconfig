@@ -1,5 +1,3 @@
-
-```kconfig
 if SHIELD_JORNE_DONGLE
 
 config ZMK_KEYBOARD_NAME
@@ -22,4 +20,3 @@ config BT_MAX_PAIRED
     default 7
 
 endif # SHIELD_JORNE_DONGLE
-```
