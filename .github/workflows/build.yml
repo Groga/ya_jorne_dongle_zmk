@@ -1,11 +1,13 @@
-name: Build ZMK Firmwares
+name: Build ZMK Firmware
 
 on:
-  workflow_dispatch:
   push:
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      build_matrix_path: 'config/build.yaml'
