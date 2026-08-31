@@ -15,13 +15,14 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
+        zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &physical_layout0;
     };
 
     mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
-        columns = <0>;
-        rows = <0>;
+        columns = <14>;
+        rows = <4>;
         events = <0>;
     };
 };
