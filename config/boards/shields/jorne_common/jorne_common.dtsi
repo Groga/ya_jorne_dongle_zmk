@@ -4,22 +4,6 @@
  * Версия:    2.0
  * Автор:     Evgeniy Moskovkin
  * Описание:  Общий matrix-transform и physical-layout (для ZMK Studio)
- *            для сплит-клавиатуры Jorne (левая половина + правая
- *            половина + донгл-центр). Подключается через #include во
- *            ВСЕ ТРИ шилда, чтобы у всех частей клавиатуры была
- *            ОДИНАКОВАЯ нумерация "key position" и одинаковый
- *            physical layout (обязательное требование ZMK для
- *            сплит-клавиатур и отдельно для ZMK Studio).
- *
- *            Раскладка соответствует jorne_dongle.keymap: 6 колонок
- *            на половину в трёх основных рядах + по 3 клавиши на
- *            больших пальцах. Итого 6*3*2 + 3*2 = 42 позиции.
- *
- *            ВАЖНО: физические номера колонок для ряда больших
- *            пальцев (RC(3, ...)) ниже — ориентировочные. Их нужно
- *            проверить на реальной плате (см. раздел 4 предыдущего
- *            документа jorne_dongle_fix.md) и поправить при
- *            необходимости.
  * ------------------------------------------------------------------
  */
 
@@ -34,71 +18,65 @@
 
         map = <
         RC(0,6) RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)    RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11) RC(0,12) RC(0,13)
-                RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)    RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11) RC(1,12)
-                RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)    RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12)
-                                        RC(3,3) RC(3,4) RC(3,5)    RC(3,7) RC(3,8) RC(3,9)
+        RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)    RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11) RC(1,12)
+        RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)    RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12)
+        RC(3,3) RC(3,4) RC(3,5)    RC(3,7) RC(3,8) RC(3,9)
         >;
     };
-};
-    // Physical layout: нужен ТОЛЬКО для ZMK Studio (визуальный
-    // редактор раскладки). На саму работу клавиатуры не влияет.
-    // Порядок ключей в "keys" ДОЛЖЕН совпадать с порядком в
-    // matrix-transform выше и с порядком bindings в keymap-е.
+
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "Jorne 44-key";
         transform = <&default_transform>;
 
-        keys  //                      w    h    x    y    rot   rx   ry
-        = <&key_physical_attrs  100  100    0    0      0    0    0>  // ряд0 слева
-        , <&key_physical_attrs  100  100  100    0      0    0    0>
-        , <&key_physical_attrs  100  100  200    0      0    0    0>
-        , <&key_physical_attrs  100  100  300    0      0    0    0>
-        , <&key_physical_attrs  100  100  400    0      0    0    0>
-        , <&key_physical_attrs  100  100  500    0      0    0    0>
-        , <&key_physical_attrs  100  100  600    0      0    0    0>
-        , <&key_physical_attrs  100  100  800    0      0    0    0>  // ряд0 справа
-        , <&key_physical_attrs  100  100  900    0      0    0    0>
-        , <&key_physical_attrs  100  100 1000    0      0    0    0>
-        , <&key_physical_attrs  100  100 1100    0      0    0    0>
-        , <&key_physical_attrs  100  100 1200    0      0    0    0>
-        , <&key_physical_attrs  100  100 1300    0      0    0    0>
-        , <&key_physical_attrs  100  100 1400    0      0    0    0>
+        keys  //                 w   h    x    y    rot    rx   ry
+        = <key_physical_attrs  100 100    0    0      0     0    0>  // ряд0 слева
+        , <key_physical_attrs  100 100  100    0      0     0    0>
+        , <key_physical_attrs  100 100  200    0      0     0    0>
+        , <key_physical_attrs  100 100  300    0      0     0    0>
+        , <key_physical_attrs  100 100  400    0      0     0    0>
+        , <key_physical_attrs  100 100  500    0      0     0    0>
+        , <key_physical_attrs  100 100  600    0      0     0    0>
+        , <key_physical_attrs  100 100  800    0      0     0    0>  // ряд0 справа
+        , <key_physical_attrs  100 100  900    0      0     0    0>
+        , <key_physical_attrs  100 100 1000    0      0     0    0>
+        , <key_physical_attrs  100 100 1100    0      0     0    0>
+        , <key_physical_attrs  100 100 1200    0      0     0    0>
+        , <key_physical_attrs  100 100 1300    0      0     0    0>
+        , <key_physical_attrs  100 100 1400    0      0     0    0>
 
-        , <&key_physical_attrs  100  100    0  100      0    0    0>  // ряд1 слева
-        , <&key_physical_attrs  100  100  100  100      0    0    0>
-        , <&key_physical_attrs  100  100  200  100      0    0    0>
-        , <&key_physical_attrs  100  100  300  100      0    0    0>
-        , <&key_physical_attrs  100  100  400  100      0    0    0>
-        , <&key_physical_attrs  100  100  500  100      0    0    0>
-        , <&key_physical_attrs  100  100  700  100      0    0    0>  // ряд1 справа
-        , <&key_physical_attrs  100  100  800  100      0    0    0>
-        , <&key_physical_attrs  100  100  900  100      0    0    0>
-        , <&key_physical_attrs  100  100 1000  100      0    0    0>
-        , <&key_physical_attrs  100  100 1100  100      0    0    0>
-        , <&key_physical_attrs  100  100 1200  100      0    0    0>
+        , <key_physical_attrs  100 100    0  100      0     0    0>  // ряд1 слева
+        , <key_physical_attrs  100 100  100  100      0     0    0>
+        , <key_physical_attrs  100 100  200  100      0     0    0>
+        , <key_physical_attrs  100 100  300  100      0     0    0>
+        , <key_physical_attrs  100 100  400  100      0     0    0>
+        , <key_physical_attrs  100 100  500  100      0     0    0>
+        , <key_physical_attrs  100 100  700  100      0     0    0>  // ряд1 справа
+        , <key_physical_attrs  100 100  800  100      0     0    0>
+        , <key_physical_attrs  100 100  900  100      0     0    0>
+        , <key_physical_attrs  100 100 1000  100      0     0    0>
+        , <key_physical_attrs  100 100 1100  100      0     0    0>
+        , <key_physical_attrs  100 100 1200  100      0     0    0>
 
-        , <&key_physical_attrs  100  100    0  200      0    0    0>  // ряд2 слева
-        , <&key_physical_attrs  100  100  100  200      0    0    0>
-        , <&key_physical_attrs  100  100  200  200      0    0    0>
-        , <&key_physical_attrs  100  100  300  200      0    0    0>
-        , <&key_physical_attrs  100  100  400  200      0    0    0>
-        , <&key_physical_attrs  100  100  500  200      0    0    0>
-        , <&key_physical_attrs  100  100  700  200      0    0    0>  // ряд2 справа
-        , <&key_physical_attrs  100  100  800  200      0    0    0>
-        , <&key_physical_attrs  100  100  900  200      0    0    0>
-        , <&key_physical_attrs  100  100 1000  200      0    0    0>
-        , <&key_physical_attrs  100  100 1100  200      0    0    0>
-        , <&key_physical_attrs  100  100 1200  200      0    0    0>
+        , <key_physical_attrs  100 100    0  200      0     0    0>  // ряд2 слева
+        , <key_physical_attrs  100 100  100  200      0     0    0>
+        , <key_physical_attrs  100 100  200  200      0     0    0>
+        , <key_physical_attrs  100 100  300  200      0     0    0>
+        , <key_physical_attrs  100 100  400  200      0     0    0>
+        , <key_physical_attrs  100 100  500  200      0     0    0>
+        , <key_physical_attrs  100 100  700  200      0     0    0>  // ряд2 справа
+        , <key_physical_attrs  100 100  800  200      0     0    0>
+        , <key_physical_attrs  100 100  900  200      0     0    0>
+        , <key_physical_attrs  100 100 1000  200      0     0    0>
+        , <key_physical_attrs  100 100 1100  200      0     0    0>
+        , <key_physical_attrs  100 100 1200  200      0     0    0>
 
-        , <&key_physical_attrs  100  100  200  300      0    0    0>  // большие пальцы слева
-        , <&key_physical_attrs  100  100  300  300      0    0    0>
-        , <&key_physical_attrs  100  100  400  300      0    0    0>
-        , <&key_physical_attrs  100  100  700  300      0    0    0>  // большие пальцы справа
-        , <&key_physical_attrs  100  100  800  300      0    0    0>
-        , <&key_physical_attrs  100  100  900  300      0    0    0>
+        , <key_physical_attrs  100 100  200  300      0     0    0>  // большие пальцы слева
+        , <key_physical_attrs  100 100  300  300      0     0    0>
+        , <key_physical_attrs  100 100  400  300      0     0    0>
+        , <key_physical_attrs  100 100  700  300      0     0    0>  // большие пальцы справа
+        , <key_physical_attrs  100 100  800  300      0     0    0>
+        , <key_physical_attrs  100 100  900  300      0     0    0>
         ;
     };
-
-
 };
