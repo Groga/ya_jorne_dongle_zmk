@@ -11,5 +11,5 @@ include:
   - board: nice_nano/nrf52840/zmk
     shield: jorne_dongle
     extra_kconfig: CONFIG_ZMK_SETTINGS_RESET_ON_BOOT=y
-  - board: nice_nano/nrf52840/zmk
+  - board: nice_nano/nrf52840
     shield: settings_reset
