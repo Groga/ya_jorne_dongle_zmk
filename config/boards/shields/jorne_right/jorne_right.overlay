@@ -1,22 +1,6 @@
 /*
- * ------------------------------------------------------------------
- * Файл:      jorne_right.overlay
- * Версия:    2.0
- * Автор:     Evgeniy Moskovkin
- * Описание:  Правая половина Jorne (периферия в сплите).
- *            col-offset = 6, т.к. левая половина уже заняла
- *            колонки 0..5 в общей матрице.
- *
- * !!! ТРЕБУЕТ ПРОВЕРКИ !!!
- *   Пины 17 и 13 в col-gpios ниже — НЕВАЛИДНЫ для nice!nano
- *   (см. предыдущее сообщение: допустимые номера &pro_micro —
- *   0,1,2,3,4,5,6,7,8,9,10,14,15,16,18,19,20,21). Сборка с этими
- *   значениями упадёт с ошибкой devicetree. Замените ИХ ДВОИХ на
- *   реальные номера пинов с вашей платы (см. ссылку в разделе 7
- *   этого документа — официальный репозиторий автора платы Jorne).
- *   Остальные пины (15,18,19,20,21) в допустимом списке и оставлены
- *   как были.
- * ------------------------------------------------------------------
+ * Файл: jorne_right.overlay
+ * Описание: Правая половина Jorne (44 клавиши / split 3x6_3 + боковые)
  */
 
 #include "../jorne_common/jorne_common.dtsi"
@@ -33,13 +17,13 @@
         diode-direction = "col2row";
 
         col-gpios
-            = <&pro_micro 0 GPIO_ACTIVE_HIGH>    // col 0 — ЗАМЕНИТЬ (было 17, невалидно)
-            , <&pro_micro 1 GPIO_ACTIVE_HIGH>    // col 1 — ЗАМЕНИТЬ (было 13, невалидно)
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   // col 2
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   // col 3
-            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // col 4
-            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   // col 5
-            , <&pro_micro 21 GPIO_ACTIVE_HIGH>   // col 6 (запасной)
+            = <&pro_micro 14 GPIO_ACTIVE_HIGH>   // col 0 (Внутренняя колонка)
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   // col 1
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   // col 2
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // col 3
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   // col 4
+            , <&pro_micro 21 GPIO_ACTIVE_HIGH>   // col 5
+            , <&pro_micro 16 GPIO_ACTIVE_HIGH>   // col 6 (Боковая внешняя: Win/Menu/AltGr)
             ;
 
         row-gpios
@@ -52,5 +36,5 @@
 };
 
 &default_transform {
-    col-offset = <6>;
+    col-offset = <7>;
 };
