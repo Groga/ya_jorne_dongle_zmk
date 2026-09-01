@@ -1,6 +1,15 @@
 /*
- * Файл: jorne_right.overlay
- * Описание: Правая половина Jorne (44 клавиши / split 3x6_3 + боковые)
+ * ------------------------------------------------------------------
+ * Файл:      jorne_left.overlay
+ * Версия:    3.0
+ * Автор:     Evgeniy Moskovkin
+ * Описание:  Левая половина Jorne (44 клавиши / split 3x6_3 + боковые).
+ *            Столбцы (col-gpios) идут в РАЗВЁРНУТОМ порядке — это
+ *            подтверждено тестами (аналогичный сдвиг был найден и
+ *            исправлен на правой половине тем же способом).
+ *            Строки (row-gpios) подтверждены реальным тестом нажатий
+ *            через отладочный USB-лог (kscan_matrix_read).
+ * ------------------------------------------------------------------
  */
 
 #include "../jorne_common/jorne_common.dtsi"
@@ -17,20 +26,20 @@
         diode-direction = "col2row";
 
         col-gpios
-            = <&pro_micro 14 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 19 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 20 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 21 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 16 GPIO_ACTIVE_HIGH>
+            = <&pro_micro 16 GPIO_ACTIVE_HIGH>   // col 0 (боковая внешняя)
+            , <&pro_micro 21 GPIO_ACTIVE_HIGH>   // col 1
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   // col 2
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // col 3
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   // col 4
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   // col 5
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>   // col 6 (внутренняя)
             ;
 
         row-gpios
-            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 0 — верхний ряд, подтверждено
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1 — домашний ряд, подтверждено
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2 — нижний ряд, подтверждено
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 — большие пальцы, подтверждено
             ;
     };
 };
