@@ -37,9 +37,9 @@
 
         row-gpios
             = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 0 — верхний ряд, подтверждено
-            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1 — домашний ряд, подтверждено
-            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2 — нижний ряд, подтверждено
-            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 — большие пальцы, подтверждено
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1 — домашний ряд, подтверждено
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2 — нижний ряд, подтверждено
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 — большие пальцы, подтверждено
             ;
     };
 };
