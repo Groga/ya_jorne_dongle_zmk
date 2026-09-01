@@ -26,20 +26,19 @@
         diode-direction = "col2row";
 
         col-gpios
-            = <&pro_micro 14 GPIO_ACTIVE_HIGH>   // col 0 (боковая внешняя)
-            , <&pro_micro 16 GPIO_ACTIVE_HIGH>   // col 1
-            , <&pro_micro 21 GPIO_ACTIVE_HIGH>   // col 2
-            , <&pro_micro 20 GPIO_ACTIVE_HIGH>   // col 3
-            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // col 4
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH>   // col 5
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   // col 6 (внутренняя)
+            = <&gpio0 31 GPIO_ACTIVE_HIGH>  // COL 0 (P0.31)
+            , <&gpio0 29 GPIO_ACTIVE_HIGH>  // COL 1 (P0.29)
+            , <&gpio0  2 GPIO_ACTIVE_HIGH>  // COL 2 (P0.02)
+            , <&gpio1 15 GPIO_ACTIVE_HIGH>  // COL 3 (P1.15)
+            , <&gpio0 28 GPIO_ACTIVE_HIGH>  // COL 4 (P0.28)
+            , <&gpio0  9 GPIO_ACTIVE_HIGH>  // COL 5 (P0.09)
             ;
 
         row-gpios
-            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 0 — верхний ряд, подтверждено
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1 — домашний ряд, подтверждено
-            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2 — нижний ряд, подтверждено
-            , <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 — большие пальцы, подтверждено
+            = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW 0 (P0.22)
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW 1 (P0.24)
+            , <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW 2 (P1.00)
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW 3 (P0.11)
             ;
     };
 };
