@@ -40,10 +40,15 @@
             ;
 
         row-gpios
-            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 0 — верхний ряд, подтверждено
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1 — домашний ряд, ТРЕБУЕТ ПОВТОРНОЙ ПРОВЕРКИ
-            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2 — нижний ряд, подтверждено
-            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 — большие пальцы, подтверждено
+            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 0 — верхний ряд      (подтверждено логом: Y U I O P [ ])
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 1 — домашний ряд     (подтверждено логом: H J K L ; ')
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 2 — нижний ряд       (подтверждено логом: N M , . / \)
+            // 2026-09-03 (Evgeniy Moskovkin): было `pro_micro 8` (D8/P1.04) —
+            // ряд больших пальцев не давал НИКАКИХ событий в логе. Левая
+            // половина использует D7 (P0.11) и там пальцы работают; половины
+            // разделяют один набор пинов, значит справа тоже D7, а D8 был
+            // ошибкой. Исправлено:
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row 3 — большие пальцы   (было D8, молчал; D7 как на левой)
             ;
     };
 };
